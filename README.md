@@ -1,22 +1,51 @@
 # Number Guessing Game
-A simple number guessing game to test your luck.
 
-## Instructions
-You are required to build a simple number guessing game where the computer randomly selects a number and the user has to guess it. The user will be given a limited number of chances to guess the number. If the user guesses the number correctly, the game will end, and the user will win. Otherwise, the game will continue until the user runs out of chances
+A command-line number guessing game written in Java. The program randomly selects a number from 1 to 20, and the player has a limited number of chances to guess it.
 
-### Requirements
-It is a CLI-based game, so you need to use the command line to interact with the game. The game should work as follows:
+## Features
 
-When the game starts, it should display a welcome message along with the rules of the game.
+- Interactive command-line interface
+- Random number between 1 and 20
+- Three difficulty levels:
+  - **Easy:** 10 chances
+  - **Medium:** 5 chances
+  - **Hard:** 3 chances
+- Hints that indicate whether the secret number is higher or lower
+- Congratulatory message when the correct number is guessed
 
-The computer should randomly select a number between 1 and 100.
+## How to Run
 
-User should select the difficulty level (easy, medium, hard) which will determine the number of chances they get to guess the number.
+Make sure Java is installed, then run the following commands from the project directory:
 
-The user should be able to enter their guess.
+```bash
+javac Main.java
+java Main
+```
 
-If the user's guess is correct, the game should display a congratulatory message along with the number of attempts it took to guess the number.
+## How to Play
 
-If the user's guess is incorrect, the game should display a message indicating whether the number is greater or less than the user's guess.
+1. Start the program.
+2. Enter `1`, `2`, or `3` to select Easy, Medium, or Hard.
+3. Enter a number from 1 to 20 as your guess.
+4. Use the higher or lower hints to narrow down the number.
+5. Continue until you guess the number or run out of chances.
 
-The game should end when the user guesses the correct number or runs out of chances.
+## Example
+
+```text
+Welcome to the Number Guessing Game!
+I'm thinking of a number between 1 and 20.
+Please select the difficulty level:
+
+1. Easy (10 chances)
+2. Medium (5 chances)
+3. Hard (3 chances)
+
+Enter your choice: 1
+
+Great! You have selected the Easy difficulty level.
+Let's start the game!
+
+Enter your guess: 10
+Incorrect! The number is greater than 10
+```
