@@ -13,8 +13,15 @@ public class Main {
         }
     }
 
+    static int generateRandomNum() {
+        int randomNum = (int) (Math.random() * 100) + 1;
+        return randomNum;
+    }
+
     public static void main(String[] args) {
-        // Scanner scanner = new Scanner(System.in);
         introMessage();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your choice: ");
+        String choice = scanner.nextLine();
     }
 }
