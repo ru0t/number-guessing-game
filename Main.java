@@ -4,7 +4,7 @@ public class Main {
 
     static void introMessage() {
         System.out.println("Welcome to the Number Guessing Game!");
-        System.out.println("I'm thinking of a number between 1 and 100.");
+        System.out.println("I'm thinking of a number between 1 and 20.");
         System.out.println("Please select the difficulty level:");
         System.out.println();
         String[] choices = { "Easy (10 chances)", "Medium (5 chances)", "Hard (3 chances)" };
@@ -16,13 +16,13 @@ public class Main {
     }
 
     static int generateRandomNum() {
-        int randomNum = (int) (Math.random() * 100) + 1;
+        int randomNum = (int) (Math.random() * 20) + 1;
         return randomNum;
     }
 
     public static void main(String[] args) {
         introMessage();
-        int chances;
+        int chances = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your choice: ");
         String choice = scanner.nextLine();
@@ -37,7 +37,7 @@ public class Main {
                 System.out.println("Great! You have selected the Medium difficulty level.");
                 break;
             case 3:
-                chances = 10;
+                chances = 3;
                 System.out.println("Great! You have selected the Hard difficulty level.");
                 break;
 
@@ -45,5 +45,28 @@ public class Main {
                 break;
         }
         System.out.println("Let's start the game!");
+        System.out.println();
+
+        int randomNumber = generateRandomNum();
+        int attempts = 0;
+
+        int i = 1;
+        while (i <= chances) {
+            System.out.print("Enter your guess: ");
+            int guess = Integer.valueOf(scanner.nextLine());
+            System.out.println("Chances: " + (chances - 1));
+            attempts += 1;
+            if (guess > randomNumber) {
+                System.out.println("Incorrect! The number is less than " + guess);
+            } else if (guess < randomNumber) {
+                System.out.println("Incorrect! The number is greater than " + guess);
+            } else if (guess == randomNumber) {
+                System.out.println(
+                        "Congratulations! You guessed the correct number in " + (chances - attempts) + " attempts");
+                break;
+            }
+            i++;
+        }
+        scanner.close();
     }
 }
